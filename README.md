@@ -234,17 +234,23 @@ informational only — app processes could never read `/data/adb` (SELinux).
   `previeweis=[1]` accepted (no rejections) — all verified live via `dumpsys`
   and hook logs.
 - **Not working (this device):** stock video sessions run Xiaomi `CUSTOM`
-  `CUSTOM` operating mode (`32772`) with 1080p + encoder streams, while
+  operating mode (`32772`) with 1080p + encoder streams, while
   WhatsApp opens `NORMAL (0)` sessions with a 4K ImageReader stream. The HAL
   gates real EIS at session/stream level, which request flags cannot change.
-- Conclusion: on HALs like this one the module is best-effort and may show
-  no visible difference. On HALs that honor request flags it should work.
   Session rebuild (modern `SessionConfiguration` + stock session params,
   4K-stream drop, stream use-case override) was attempted: sessions rebuild
   cleanly but the operating mode stays `NORMAL` and footage stays shaky.
   Forcing a Xiaomi `CUSTOM` mode would need the hidden
   `createCustomCaptureSession` with undocumented magic ints — not attempted
   (blind, may break the camera pipeline).
+- **Side effect (positive, Redmi test device):** forcing the video-mode
+  pipeline visibly improves output even where EIS won't engage — TikTok live
+  streaming looks cleaner/sharper with locked `[30,30]` fps + `VIDEO_RECORD`
+  intent than with the stock photo-mode pipeline. So the module is worth
+  running for picture quality alone on such HALs.
+- Conclusion: on HALs like this one the module is best-effort for
+  stabilization, but the video-mode pipeline alone is a visible upgrade. On
+  HALs that honor request flags it should stabilize fully.
 
 ## Limitations
 
