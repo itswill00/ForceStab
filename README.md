@@ -164,13 +164,13 @@ VideoModeFix/
 
 1. **Flash `VideoModeFix-v0.1.0.zip` in the KernelSU Manager.** The bundled
    `VideoModeFix.apk` hook is `pm install`ed automatically during flash
-   (see `ksu-module/customize.sh`). Reboot.
+   (see `ksu-module/customize.sh`).
 2. **LSPosed Manager → Modules → VideoModeFix → enable**, scope: check **only**
    the camera apps (e.g. `com.instagram.android`). Do **not** check System
-   Framework. A reboot is required after every APK update (a soft reboot —
-   killing `system_server` — is enough, LSPosed/ART keeps the old dex cached
-   otherwise).
-3. Done. Defaults are safe: flag + fixed fps + vendor tags for every scoped
+   Framework.
+3. **Reboot once** (a soft reboot — killing `system_server` — is enough;
+   LSPosed/ART keeps the old dex cached otherwise), then record and verify.
+4. Done. Defaults are safe: flag + fixed fps + vendor tags for every scoped
    app; the invasive paths (`intent` rewrite, `sess`, `drop4k`, `usecase`)
    are off unless you enable them via [Tuning](#tuning-without-reboot).
    The WebUI shows Verify + hook log.

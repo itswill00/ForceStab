@@ -79,8 +79,7 @@ set_perm $MODPATH/bin/videomodefix 0 0 0755
 set_perm $MODPATH/bin/verify.sh 0 0 0755
 set_perm $MODPATH/bin/ftune 0 0 0755
 
-ui_print "- NEXT:"
-ui_print "  1. Reboot."
-ui_print "  2. LSPosed Manager > Modules > VideoModeFix > enable."
-ui_print "  3. Scope: check ONLY camera apps (never System Framework)."
-ui_print "  4. Reboot again, then record and Verify."
+ui_print "- NEXT (one reboot total):"
+ui_print "  1. LSPosed Manager > Modules > VideoModeFix > enable."
+ui_print "  2. Scope: check ONLY camera apps (never System Framework)."
+ui_print "  3. Reboot once, then record and Verify."
