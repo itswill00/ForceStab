@@ -1,0 +1,3 @@
+# system.prop - intentionally minimal.
+# Do NOT force unknown persist.vendor.camera.* keys: can break MTK HAL.
+# EIS forcing is done by LSPosed hook, not props.

@@ -1,0 +1,13 @@
+#!/system/bin/sh
+# videomodefix ctl: install status + verify shortcut.
+CONF=/data/adb/videomodefix/config
+case "$1" in
+  status)
+    [ -f "$CONF" ] && { echo "-- $CONF:"; cat "$CONF"; }
+    ls /data/adb/modules/videomodefix >/dev/null 2>&1 && echo "module=installed" || echo "module=not-installed"
+    pm list packages 2>/dev/null | grep -q "^package:com.videomodefix$" && echo "hook-apk=installed" || echo "hook-apk=missing"
+    ls /data/adb/modules/zygisk_lsposed >/dev/null 2>&1 && echo "lsposed=present" || echo "lsposed=missing"
+    ;;
+  verify) sh "$(dirname "$0")/verify.sh";;
+  *) echo "usage: videomodefix {status|verify}";;
+esac

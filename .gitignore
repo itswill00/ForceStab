@@ -1,0 +1,17 @@
+# build artifacts (regenerate locally, see READMEs)
+*.apk
+*.keystore
+*.jar
+out/
+dexb/
+dexbex/
+classes.dex
+unsigned.apk
+*.zip
+ksu-module/webui/node_modules/
+ksu-module/webui/dist/
+ksu-module/webroot/index.html
+# SDK / editor noise
+android-sdk/
+.DS_Store
+*.idsig

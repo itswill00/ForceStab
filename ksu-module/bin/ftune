@@ -1,0 +1,13 @@
+#!/system/bin/sh
+# ftune - change VideoModeFix hook params WITHOUT reboot.
+# usage: ftune "fps=0" [package]   (package defaults to com.whatsapp)
+# each line: fps=0/1 eis=0/1 peis=0/1 sess=0/1 intent=<id> (intent=-1 keeps app intent)
+#   usecase=<id> drop4k=<index> only=<pkg,...> skey_<suffix>=<v[,..]>
+# NOTE: one call replaces the whole file; pass all lines at once, e.g.
+#   ftune "$(printf 'fps=1\nsess=1')" com.whatsapp
+CONF=/data/local/tmp/videomodefix.conf
+[ -n "$1" ] && echo "$1" > "$CONF"
+chmod 644 "$CONF" 2>/dev/null
+echo "-- $CONF:"; cat "$CONF" 2>/dev/null || echo "(defaults: fps=1 eis=1 peis=1 intent=-1 sess=0 drop4k=-1 usecase=-1)"
+PKG="${2:-com.whatsapp}"
+am force-stop "$PKG" 2>/dev/null && echo "killed $PKG - reopen it to apply"

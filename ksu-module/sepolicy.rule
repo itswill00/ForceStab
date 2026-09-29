@@ -1,0 +1,2 @@
+# sepolicy.rule - empty on purpose, this module needs no extra policy.
+# All scripts run as KSU root and only perform read-only dumpsys.

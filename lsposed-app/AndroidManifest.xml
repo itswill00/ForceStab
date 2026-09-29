@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.videomodefix"
+    android:versionCode="1"
+    android:versionName="0.1.0">
+    <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="34"/>
+    <application android:label="VideoModeFix" android:hasCode="true">
+        <meta-data android:name="xposedmodule" android:value="true"/>
+        <meta-data android:name="xposeddescription" android:value="Force third-party cameras into video mode (intent, fps, EIS)"/>
+        <meta-data android:name="xposedminversion" android:value="82"/>
+    </application>
+</manifest>

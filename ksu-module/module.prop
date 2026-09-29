@@ -1,0 +1,7 @@
+id=videomodefix
+name=VideoModeFix
+version=v0.1.0
+versionCode=1
+author=itswill00
+description=Force third-party camera apps into video mode (intent, fps, EIS). No OIS fake. Safe defaults.
+updateJson=https://github.com/itswill00/VideoModeFix/raw/main/update.json
