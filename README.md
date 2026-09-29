@@ -155,6 +155,10 @@ VideoModeFix/
 - Root via **KernelSU** (or fork) with a working **Zygisk** provider
   (ReZygisk / ZygiskNext) — tested on ReZygisk.
 - **LSPosed framework** installed and working (`org.lsposed.manager`).
+- **HyperOS / MIUI.** Developed and tested on Xiaomi HyperOS only — the
+  vendor tags (`eismode`, `previeweis`, session params) are MediaTek/Xiaomi
+  HAL specifics. Plain AOSP behavior is untested; the AOSP flag part should
+  still apply wherever `[0 1]` is exposed, but no guarantees.
 - Any app that uses the camera (it must use the Camera2 API — see below).
 - Android 10+ (minSdk 29).
 - A MediaTek/Xiaomi-style HAL helps (`eismode`/`previeweis`); the AOSP flag
